@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Townshend Taherzadeh Library and Archives</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="32x32 48x48" />
+  <link rel="icon" type="image/png" href="logo.png" sizes="any" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <!-- SEO -->
+  <meta name="description" content="A library and archives in Waterford dedicated to preserving the history of the Bahá'í Faith in Ireland, honouring George Townshend and Adib Taherzadeh." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Townshend Taherzadeh Library and Archives" />
+  <meta property="og:description" content="A library and archives in Waterford dedicated to preserving the history of the Bahá'í Faith in Ireland, honouring George Townshend and Adib Taherzadeh." />
+  <meta property="og:image" content="logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Townshend Taherzadeh Library and Archives" />
+  <meta name="twitter:description" content="A library and archives in Waterford dedicated to preserving the history of the Bahá'í Faith in Ireland, honouring George Townshend and Adib Taherzadeh." />
+  <meta name="twitter:image" content="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #238FBE;
+      --accent-dark: #1a6f94;
+      --accent-light: #e8f4fa;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --border: #d0ccc4;
+      --bg: #faf9f7;
+      --white: #ffffff;
+      --parchment: #f5f2ed;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 2px solid var(--accent);
+      padding: 50px 50px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    /* Portrait columns */
+    .portrait-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portrait-frame {
+      width: 100%;
+      flex: 1;
+      overflow: hidden;
+      background: #ccc;
+      min-height: 180px;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
+
+    .portrait-caption {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #034E7C;
+      text-align: left;
+      margin-top: 5px;
+    }
+
+    /* Centre column — title top, logo middle, subtitle bottom */
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px 26px;
+    }
+
+    .header-title {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.4;
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    .header-logo {
+      width: 300px;
+      height: auto;
+      display: block;
+    }
+
+    .header-subtitle {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1.5;
+      text-align: right;
+      align-self: flex-end;
+    }
+
+    /* ── MAIN CONTENT ────────────────────────────────────── */
+
+    .main-content {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 48px 32px 56px;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1.2em;
+      text-align: justify;
+    }
+
+    /* Two-line drop cap */
+    .intro p:first-child::first-letter {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3.5em;
+      font-weight: 700;
+      float: left;
+      line-height: 1;
+      margin-right: 6px;
+      margin-top: 4px;
+      color: var(--text);
+    }
+
+    /* Small caps for opening words */
+    .opening-small-caps {
+      font-variant: small-caps;
+      font-size: 1.05em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* Aims list — indented relative to intro text, left-aligned */
+    .aims-list {
+      list-style: none;
+      margin: 0.6em 0 1.4em 2em;
+      padding: 0;
+      text-align: left;
+    }
+
+    .aims-list > li {
+      position: relative;
+      padding-left: 1.4em;
+      margin-bottom: 0.85em;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .aims-list > li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--text);
+      font-size: 1.1em;
+      line-height: 1.75;
+    }
+
+    /* Sub-list */
+    .sub-list {
+      list-style: none;
+      margin: 0.5em 0 0.3em 0;
+      padding: 0;
+    }
+
+    .sub-list li {
+      position: relative;
+      padding-left: 1.4em;
+      margin-bottom: 0.3em;
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .sub-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--text);
+    }
+
+    /* Launch date */
+    .launch-date {
+      margin-top: 2em;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    /* ── CONTACT SECTION ─────────────────────────────────── */
+
+    .contact-section {
+      background: var(--parchment);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 32px 60px;
+    }
+
+    .contact-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .heading-rule {
+      width: 56px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0 auto 32px;
+      border: none;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-group label {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(35, 143, 190, 0.12);
+    }
+
+    .form-group textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      border: none;
+      padding: 13px 36px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-dark);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .form-success {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+
+    .site-footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 90px;
+      height: auto;
+      display: block;
+      margin: 0 auto 14px;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: 'Lora', serif;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+
+    @media (max-width: 680px) {
+      .site-header {
+        padding: 20px 16px 16px;
+      }
+
+      .header-inner {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 12px;
+      }
+
+      .header-center {
+        grid-column: 1 / -1;
+        order: -1;
+        padding: 0 0 8px;
+      }
+
+      .header-title {
+        align-self: flex-start;
+        text-align: left;
+      }
+
+      .header-subtitle {
+        align-self: flex-end;
+        text-align: right;
+      }
+
+      .header-logo {
+        width: min(260px, 100%);
+      }
+
+      .portrait-frame {
+        min-height: 160px;
+      }
+
+      .main-content {
+        padding: 32px 20px 40px;
+      }
+
+      .contact-section {
+        padding: 40px 20px 48px;
+      }
+
+      .submit-btn {
+        align-self: stretch;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <div class="portrait-col left">
+        <div class="portrait-frame">
+          <img src="george-townshend.jpg" alt="George Townshend" />
+        </div>
+        <p class="portrait-caption">George Townshend</p>
+      </div>
+
+      <div class="header-center">
+        <p class="header-title">Townshend Taherzadeh<br>Library and Archives</p>
+        <img src="logo.png" alt="TT Library Logo" class="header-logo" />
+        <p class="header-subtitle">Leabharlann agus Cartlann<br>Townshend Taherzadeh</p>
+      </div>
+
+      <div class="portrait-col right">
+        <div class="portrait-frame">
+          <img src="adib-taherzadeh.jpg" alt="Adib Taherzadeh" />
+        </div>
+        <p class="portrait-caption">Adib Taherzadeh</p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="main-content">
+      <div class="intro">
+        <p>T<span class="opening-small-caps">he Townshend Taherzadeh Library and Archives</span> is established in honour of George Townshend (1876–1957), the founding figure of the Irish Bahá'í Community, and Adib Taherzadeh (1921–2000), a father figure during its formative years.</p>
+        <p>Located in Waterford, the library's primary objectives are to promote, preserve and provide accessibility to the rich history and development of the Bahá'í Faith in the island of Ireland and throughout the world, and to become a centre of learning and research for future generations. Its initial aims are:</p>
+      </div>
+
+      <ul class="aims-list">
+        <li>Maintaining, cataloguing and providing access to a wide collection of books, manuscripts and papers associated with the Bahá'í Faith.</li>
+        <li>Digitising selected materials to be made available online.</li>
+        <li>Providing an extensive and accessible repository for personal collections and materials, documents, and memorabilia—including digitised versions—to be preserved for posterity, that would include:
+          <ul class="sub-list">
+            <li>Books, booklets, pamphlets, diaries, address and autograph books, calendars</li>
+            <li>Bahá'í news journals, periodicals, newsletters, youth and child bulletins</li>
+            <li>Poems, essays, published and unpublished manuscripts, academic theses, transcripts</li>
+            <li>Programmes/materials of conferences, conventions, summer/winter/weekend schools</li>
+            <li>Digital and non-digital photographs, negatives, films, slides, plates</li>
+            <li>Audio and musical recordings (tapes, records, audio cassettes, CDs and other formats)</li>
+            <li>Published/unpublished films, video cassettes, CDs, digital and any other recorded formats</li>
+            <li>Artistic works, calligraphic scripts, musical compositions, posters, postcards</li>
+            <li>Historical records, reference/biographical books, family trees, biographies, obituaries, maps</li>
+            <li>Newspapers, periodicals, magazines and journalistic reports, news-cuttings.</li>
+          </ul>
+        </li>
+        <li>Acquiring and maintaining:
+          <ul class="sub-list">
+            <li>Books and materials in English, Gaelic, Persian, Arabic, and other languages</li>
+            <li>Papers, correspondence, photographs, recordings, etc. relating to the late Mr Townshend and Mr Taherzadeh.</li>
+          </ul>
+        </li>
+        <li>Providing a public platform for the promotion of discourses that contribute towards the advancement of society and the well-being of humanity.</li>
+      </ul>
+
+    </div>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="contact-inner">
+        <h2 class="section-heading">Contact Us</h2>
+        <hr class="heading-rule" />
+        <form class="contact-form" name="contact" method="POST" netlify data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+        <p class="form-success" id="form-success" style="display:none;">Thank you — your message has been received.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <img src="logo.png" alt="TT Library Logo" class="footer-logo" />
+    <p class="footer-copy">Copyright &copy; <span id="footer-year">2023</span> Townshend Taherzadeh Library and Archives. All rights reserved.</p>
+  </footer>
+
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function () {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    })
+    .catch(function () {
+      alert('Something went wrong. Please try again.');
+    });
+  });
+</script>
+</body>
+</html>
